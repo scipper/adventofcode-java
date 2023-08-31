@@ -18,14 +18,14 @@ public class ItemSplitterTest {
     public void shouldGetFirstCompartmentOfItems() {
         Compartments compartments = itemSplitter.splitItemsIntoCompartments("ab");
 
-        assertEquals(compartments.getFirst(), "a");
+        assertEquals(compartments.first(), "a");
     }
 
     @Test
     public void shouldGetSecondCompartmentOfItems() {
         Compartments compartments = itemSplitter.splitItemsIntoCompartments("ab");
 
-        assertEquals(compartments.getSecond(), "b");
+        assertEquals(compartments.second(), "b");
     }
 
 }

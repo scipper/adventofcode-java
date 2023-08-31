@@ -2,10 +2,10 @@ package de.myscipper.adventofcode;
 
 public class ItemFinder {
     public String findSharedItem(Compartments compartments) {
-        String[] firstItems = compartments.getFirst().split("");
+        String[] firstItems = compartments.first().split("");
         String sharedItem = null;
         for (String item : firstItems) {
-            if (compartments.getSecond().contains(item)) {
+            if (compartments.second().contains(item)) {
                 sharedItem = item;
 
                 break;
