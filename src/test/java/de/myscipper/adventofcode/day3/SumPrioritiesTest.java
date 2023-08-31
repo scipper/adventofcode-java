@@ -1,4 +1,4 @@
-package de.myscipper.adventofcode;
+package de.myscipper.adventofcode.day3;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -32,7 +32,7 @@ public class SumPrioritiesTest {
 
     @Test
     public void shouldSumUpAllItemsFromFile() throws FileNotFoundException {
-        Scanner in = new Scanner(new FileReader("C:\\Code\\Java\\adventofcode\\src\\test\\java\\de\\myscipper\\adventofcode\\items.txt"));
+        Scanner in = new Scanner(new FileReader("C:\\Code\\Java\\adventofcode\\src\\test\\java\\de\\myscipper\\adventofcode\\day3\\items.txt"));
         int priority = 0;
         ArrayList<Rucksack> rucksacks = new ArrayList<>();
         while (in.hasNext()) {

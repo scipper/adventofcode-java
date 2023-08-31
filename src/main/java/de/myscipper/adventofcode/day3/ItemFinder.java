@@ -1,4 +1,4 @@
-package de.myscipper.adventofcode;
+package de.myscipper.adventofcode.day3;
 
 public class ItemFinder {
     public String findSharedItem(Compartments compartments) {

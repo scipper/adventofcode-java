@@ -1,4 +1,4 @@
-package de.myscipper.adventofcode;
+package de.myscipper.adventofcode.day3;
 
 public class Rucksack {
     private final String items;
