@@ -7,23 +7,23 @@ import static org.junit.Assert.assertEquals;
 
 public class CompartmentsSplitterTest {
 
-    private CompartmentsSplitter compartmentsSplitter;
+    private CompartmentsSplitter splitter;
 
     @Before
     public void setUp() {
-        compartmentsSplitter = new CompartmentsSplitter();
+        splitter = new CompartmentsSplitter();
     }
 
     @Test
     public void shouldGetFirstItemOfGroup() {
-        ItemGroup itemGroup = compartmentsSplitter.splitItemsIntoGroup("ab");
+        ItemGroup itemGroup = splitter.splitItemsIntoGroup("ab");
 
         assertEquals("a", itemGroup.get(0));
     }
 
     @Test
     public void shouldGetSecondItemOfGroup() {
-        ItemGroup itemGroup = compartmentsSplitter.splitItemsIntoGroup("ab");
+        ItemGroup itemGroup = splitter.splitItemsIntoGroup("ab");
 
         assertEquals("b", itemGroup.get(1));
     }

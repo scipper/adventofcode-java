@@ -38,10 +38,14 @@ public class SumPrioritiesTest {
         assertEquals(6, priority);
     }
 
+    private static Scanner getScanner() throws FileNotFoundException {
+        String filePath = new File("").getAbsolutePath();
+        return new Scanner(new FileReader(filePath + "\\src\\test\\java\\de\\myscipper\\adventofcode\\day3\\items.txt"));
+    }
+
     @Test
     public void shouldSumUpAllItemsFromFile() throws FileNotFoundException {
-        String filePath = new File("").getAbsolutePath();
-        Scanner in = new Scanner(new FileReader(filePath + "\\src\\test\\java\\de\\myscipper\\adventofcode\\day3\\items.txt"));
+        Scanner in = getScanner();
         int priority = 0;
         ArrayList<Rucksack> rucksacks = new ArrayList<>();
         while (in.hasNext()) {
@@ -53,6 +57,30 @@ public class SumPrioritiesTest {
         }
 
         assertEquals(7428, priority);
+    }
+
+    @Test
+    public void shouldSumUpAllItemsGroupsOfThreeElves() throws FileNotFoundException {
+        Scanner in = getScanner();
+        int priority = 0;
+        ArrayList<Rucksack> rucksacks = new ArrayList<>();
+        int i = 1;
+        StringBuilder currentItemGroup = new StringBuilder();
+        while (in.hasNext()) {
+            currentItemGroup.append(in.next());
+            currentItemGroup.append("\n");
+            if (i % 3 == 0) {
+                rucksacks.add(new Rucksack(currentItemGroup.toString(), new RucksackSplitter(), finder, prioritizer));
+                currentItemGroup = new StringBuilder();
+            }
+            i++;
+        }
+
+        for (Rucksack rucksack : rucksacks) {
+            priority += rucksack.getPriorityOfMatchingItem();
+        }
+
+        assertEquals(2650, priority);
     }
 
 }
