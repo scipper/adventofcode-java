@@ -18,28 +18,28 @@ public class PrioritizerTest {
     public void shouldGetLowestPriorityOfLowerCaseItem() {
         int priority = prioritizer.getPriorityOf("a");
 
-        assertEquals(priority, 1);
+        assertEquals(1, priority);
     }
 
     @Test
     public void shouldGetHighestPriorityOfLowerCaseItem() {
         int priority = prioritizer.getPriorityOf("z");
 
-        assertEquals(priority, 26);
+        assertEquals(26, priority);
     }
 
     @Test
     public void shouldGetLowestPriorityOfUpperCaseItem() {
         int priority = prioritizer.getPriorityOf("A");
 
-        assertEquals(priority, 27);
+        assertEquals(27, priority);
     }
 
     @Test
     public void shouldGetHighestPriorityOfUpperCaseItem() {
         int priority = prioritizer.getPriorityOf("Z");
 
-        assertEquals(priority, 52);
+        assertEquals(52, priority);
     }
 
 }

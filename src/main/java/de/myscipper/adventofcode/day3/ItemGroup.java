@@ -13,7 +13,11 @@ public class ItemGroup {
     }
 
     public String get(int index) {
-        return this.items.get(index);
+        String item = null;
+        if (index <= (this.items.size() - 1)) {
+            item = this.items.get(index);
+        }
+        return item;
     }
 
 }

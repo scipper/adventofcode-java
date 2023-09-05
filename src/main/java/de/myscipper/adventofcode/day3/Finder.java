@@ -4,12 +4,23 @@ public class Finder {
     public String findSharedItem(ItemGroup itemGroup) {
         String[] firstItems = itemGroup.get(0).split("");
         String sharedItem = null;
+        String second = itemGroup.get(1);
+        String third = itemGroup.get(2);
         for (String item : firstItems) {
-            if (itemGroup.get(1).contains(item)) {
-                sharedItem = item;
+            if (third != null) {
+                if (second.contains(item) && third.contains(item)) {
+                    sharedItem = item;
 
-                break;
+                    break;
+                }
+            } else {
+                if (second.contains(item)) {
+                    sharedItem = item;
+
+                    break;
+                }
             }
+
         }
 
         return sharedItem;

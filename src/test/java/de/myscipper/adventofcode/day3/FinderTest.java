@@ -18,14 +18,21 @@ public class FinderTest {
     public void shouldFindTheLetterAAsSharedItem() {
         String sharedItem = finder.findSharedItem(new ItemGroup("a", "a"));
 
-        assertEquals(sharedItem, "a");
+        assertEquals("a", sharedItem);
     }
 
     @Test
     public void shouldFindSharedItemInLongerItemList() {
         String sharedItem = finder.findSharedItem(new ItemGroup("ab", "bc"));
 
-        assertEquals(sharedItem, "b");
+        assertEquals("b", sharedItem);
+    }
+
+    @Test
+    public void shouldFindSharedItemIn3Groups() {
+        String sharedItem = finder.findSharedItem(new ItemGroup("abc", "bcd", "cde"));
+
+        assertEquals("c", sharedItem);
     }
 
 }
