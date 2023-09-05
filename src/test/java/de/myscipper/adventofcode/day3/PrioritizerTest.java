@@ -5,39 +5,39 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class ItemPrioritizerTest {
+public class PrioritizerTest {
 
-    private ItemPrioritizer itemPrioritizer;
+    private Prioritizer prioritizer;
 
     @Before
     public void setUp() {
-        itemPrioritizer = new ItemPrioritizer();
+        prioritizer = new Prioritizer();
     }
 
     @Test
     public void shouldGetLowestPriorityOfLowerCaseItem() {
-        int priority = itemPrioritizer.getPriorityOf("a");
+        int priority = prioritizer.getPriorityOf("a");
 
         assertEquals(priority, 1);
     }
 
     @Test
     public void shouldGetHighestPriorityOfLowerCaseItem() {
-        int priority = itemPrioritizer.getPriorityOf("z");
+        int priority = prioritizer.getPriorityOf("z");
 
         assertEquals(priority, 26);
     }
 
     @Test
     public void shouldGetLowestPriorityOfUpperCaseItem() {
-        int priority = itemPrioritizer.getPriorityOf("A");
+        int priority = prioritizer.getPriorityOf("A");
 
         assertEquals(priority, 27);
     }
 
     @Test
     public void shouldGetHighestPriorityOfUpperCaseItem() {
-        int priority = itemPrioritizer.getPriorityOf("Z");
+        int priority = prioritizer.getPriorityOf("Z");
 
         assertEquals(priority, 52);
     }

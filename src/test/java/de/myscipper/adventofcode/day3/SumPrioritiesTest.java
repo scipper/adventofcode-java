@@ -21,9 +21,9 @@ public class SumPrioritiesTest {
     public void shouldFindSharedItemInLongerItemList() {
         int priority = 0;
         ArrayList<Rucksack> rucksacks = new ArrayList<>();
-        rucksacks.add(new Rucksack("aa"));
-        rucksacks.add(new Rucksack("bb"));
-        rucksacks.add(new Rucksack("cc"));
+        rucksacks.add(new Rucksack("aa", new Splitter(), new Finder(), new Prioritizer()));
+        rucksacks.add(new Rucksack("bb", new Splitter(), new Finder(), new Prioritizer()));
+        rucksacks.add(new Rucksack("cc", new Splitter(), new Finder(), new Prioritizer()));
         for (Rucksack rucksack : rucksacks) {
             priority += rucksack.getPriorityOfMatchingItem();
         }
@@ -38,7 +38,7 @@ public class SumPrioritiesTest {
         int priority = 0;
         ArrayList<Rucksack> rucksacks = new ArrayList<>();
         while (in.hasNext()) {
-            rucksacks.add(new Rucksack(in.next()));
+            rucksacks.add(new Rucksack(in.next(), new Splitter(), new Finder(), new Prioritizer()));
         }
 
         for (Rucksack rucksack : rucksacks) {

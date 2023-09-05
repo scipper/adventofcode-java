@@ -2,21 +2,21 @@ package de.myscipper.adventofcode.day3;
 
 public class Rucksack {
     private final String items;
-    private final ItemSplitter itemSplitter;
-    private final ItemFinder itemFinder;
-    private final ItemPrioritizer itemPrioritizer;
+    private final Splitter splitter;
+    private final Finder finder;
+    private final Prioritizer prioritizer;
 
-    public Rucksack(String items) {
+    public Rucksack(String items, Splitter splitter, Finder finder, Prioritizer prioritizer) {
         this.items = items;
-        itemSplitter = new ItemSplitter();
-        itemFinder = new ItemFinder();
-        itemPrioritizer = new ItemPrioritizer();
+        this.splitter = splitter;
+        this.finder = finder;
+        this.prioritizer = prioritizer;
     }
 
     public int getPriorityOfMatchingItem() {
-        Compartments compartments = itemSplitter.splitItemsIntoCompartments(items);
-        String sharedItem = itemFinder.findSharedItem(compartments);
+        ItemGroup itemGroup = splitter.splitItemsIntoGroup(items);
+        String sharedItem = finder.findSharedItem(itemGroup);
 
-        return itemPrioritizer.getPriorityOf(sharedItem);
+        return prioritizer.getPriorityOf(sharedItem);
     }
 }

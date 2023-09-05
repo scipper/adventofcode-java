@@ -1,9 +1,9 @@
 - should get sum of one rucksack
 - should get sum of multiple rucksacks
-- should find the letter a in both compartments
+- should find the letter a in both itemGroup
 
 concerns
-- split up items into two compartments of the same size
-- find the item that appears in both compartments
+- split up items into two itemGroup of the same size
+- find the item that appears in both itemGroup
 - get the priority of the item
 - sum prioritized items

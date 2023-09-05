@@ -1,11 +1,11 @@
 package de.myscipper.adventofcode.day3;
 
-public class ItemFinder {
-    public String findSharedItem(Compartments compartments) {
-        String[] firstItems = compartments.first().split("");
+public class Finder {
+    public String findSharedItem(ItemGroup itemGroup) {
+        String[] firstItems = itemGroup.get(0).split("");
         String sharedItem = null;
         for (String item : firstItems) {
-            if (compartments.second().contains(item)) {
+            if (itemGroup.get(1).contains(item)) {
                 sharedItem = item;
 
                 break;

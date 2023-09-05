@@ -5,25 +5,25 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class ItemFinderTest {
+public class FinderTest {
 
-    private ItemFinder itemFinder;
+    private Finder finder;
 
     @Before
     public void setUp() {
-        itemFinder = new ItemFinder();
+        finder = new Finder();
     }
 
     @Test
-    public void shouldFindTheLetterAInBothCompartments() {
-        String sharedItem = itemFinder.findSharedItem(new Compartments("a", "a"));
+    public void shouldFindTheLetterAAsSharedItem() {
+        String sharedItem = finder.findSharedItem(new ItemGroup("a", "a"));
 
         assertEquals(sharedItem, "a");
     }
 
     @Test
     public void shouldFindSharedItemInLongerItemList() {
-        String sharedItem = itemFinder.findSharedItem(new Compartments("ab", "bc"));
+        String sharedItem = finder.findSharedItem(new ItemGroup("ab", "bc"));
 
         assertEquals(sharedItem, "b");
     }
