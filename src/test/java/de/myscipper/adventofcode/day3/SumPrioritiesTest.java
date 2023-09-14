@@ -1,11 +1,10 @@
 package de.myscipper.adventofcode.day3;
 
+import de.myscipper.adventofcode.FileUtils;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -38,18 +37,13 @@ public class SumPrioritiesTest {
         assertEquals(6, priority);
     }
 
-    private static Scanner getScanner() throws FileNotFoundException {
-        String filePath = new File("").getAbsolutePath();
-        return new Scanner(new FileReader(filePath + "\\src\\test\\java\\de\\myscipper\\adventofcode\\day3\\items.txt"));
-    }
-
     @Test
     public void shouldSumUpAllItemsFromFile() throws FileNotFoundException {
-        Scanner in = getScanner();
+        Scanner scanner = FileUtils.getScanner("day3\\items.txt");
         int priority = 0;
         ArrayList<Rucksack> rucksacks = new ArrayList<>();
-        while (in.hasNext()) {
-            rucksacks.add(new Rucksack(in.next(), compartmentsSplitter, finder, prioritizer));
+        while (scanner.hasNext()) {
+            rucksacks.add(new Rucksack(scanner.next(), compartmentsSplitter, finder, prioritizer));
         }
 
         for (Rucksack rucksack : rucksacks) {
@@ -61,13 +55,13 @@ public class SumPrioritiesTest {
 
     @Test
     public void shouldSumUpAllItemsGroupsOfThreeElves() throws FileNotFoundException {
-        Scanner in = getScanner();
+        Scanner scanner = FileUtils.getScanner("day3\\items.txt");
         int priority = 0;
         ArrayList<Rucksack> rucksacks = new ArrayList<>();
         int i = 1;
         StringBuilder currentItemGroup = new StringBuilder();
-        while (in.hasNext()) {
-            currentItemGroup.append(in.next());
+        while (scanner.hasNext()) {
+            currentItemGroup.append(scanner.next());
             currentItemGroup.append("\n");
             if (i % 3 == 0) {
                 rucksacks.add(new Rucksack(currentItemGroup.toString(), new RucksackSplitter(), finder, prioritizer));

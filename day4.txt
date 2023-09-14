@@ -1,0 +1,5 @@
+- get complete list of numbers from range
+- split pairs
+- detect overlaps
+- first pair is fully contained by the second
+- second pair is fully contained by the first
